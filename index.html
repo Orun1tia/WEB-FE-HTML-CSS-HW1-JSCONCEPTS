@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Async Concepts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>JavaScript Concepts</h1>
+        <h3>By Jose Almenarez</h3>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. JavaScript Async</h2>
+            <p>JavaScript is single-threaded, meaning it can only do one thing at a time. Asynchronous programming
+                allows JavaScript to handle tasks in a non-blocking manner, meaning it can continue executing other code
+                while waiting for a time-consuming operation to complete.</p>
+            <pre><code>
+    setTimeout(() => {
+        console.log('This runs after 2 seconds');
+    }, 2000);
+    
+    console.log('This runs immediately');
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>2. Callback</h2>
+            <p>A callback function is a function passed into another function as an argument, which is then invoked
+                inside the outer function to complete some kind of routine or action.</p>
+            <p>There are two ways in which the callback may be called: synchronous and asynchronous. Synchronous
+                callbacks are called immediately after the invocation of the outer function, with no intervening
+                asynchronous tasks, while asynchronous callbacks are called at some point later, after an asynchronous
+                operation has completed.</p>
+            <pre><code>
+    function example(callback) {
+        callback();
+    }
+    
+    example(() => {
+        console.log('Callback executed');
+    });
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>3. Promise</h2>
+            <p>A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to
+                associate handlers with an asynchronous action's eventual success value or failure reason. This lets
+                asynchronous methods return values like synchronous methods: instead of immediately returning the final
+                value, the asynchronous method returns a promise to supply the value at some point in the future.</p>
+            <pre><code>
+    const fetch = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const success = true;
+            if (success) {
+                resolve('fetched');
+            } else {
+                reject('Error');
+            }
+        }, 2000);
+    });
+
+    fetch
+        .then(response => console.log(response))
+        .catch(error => console.error(error));
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>4. Async/Await</h2>
+            <p>Async/Await is syntactic sugar over Promises, is usually used to unwrap promises by passing a
+                Promise as the expression. Using await pauses the execution of its surrounding async function until the
+                promise is settled.</p>
+            <pre><code>
+    async function doAsync() {
+        return 'Async/Await resolved';
+    }
+    
+    doAsync().then(console.log);
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>5. Event Loop</h2>
+            <p>The Event Loop is what allows JavaScript to perform non-blocking I/O operations, despite being
+                single-threaded. It continuously checks the call stack and the message queue, executing functions when
+                the call stack is empty.</p>
+            <pre><code>
+    console.log("1");
+
+    setTimeout(() => {
+        console.log("2");
+    }, 0);
+    
+    console.log("3");
+    // Output: 1 3 2
+            </code></pre>
+        </section>
+    </main>
+    <footer>
+        <p>&copy;JavaScript Concepts Blog</p>
+    </footer>
+</body>
+
+</html>

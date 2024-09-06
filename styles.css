@@ -1,0 +1,46 @@
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+header {
+    background: #692b2b;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+code {
+    font-size: large;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+pre {
+    background: #eeeeee;
+    padding: 10px;
+    border-left: 3px solid #692b2b;
+    overflow-x: auto;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #692b2b;
+    color: #fff;
+    bottom: 0;
+    width: 100%;
+}
+
+.p{
+    max-width: 1500px;
+}
